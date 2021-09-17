@@ -2,7 +2,7 @@ export const checkKeywords = (
   parameters: { keywords: string[], labels: string[], assignees: string[] }[],
   content: string
 ): { keywords: string[], labels: string[], assignees: string[] }[] | null => {
-  console.log('issue content:', content);
+  console.log('comment content:', content);
 
   let matchingKeywords: { keywords: string[], labels: string[], assignees: string[] }[] = [];
 
