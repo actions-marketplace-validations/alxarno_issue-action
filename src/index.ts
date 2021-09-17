@@ -16,6 +16,8 @@ async function run() {
       core.setFailed("Action can only be run on comments");
       return;
     }
+
+    console.log(`Comment: ${content}`)
     
     const parameters: { keywords: string[], labels: string[], assignees: string[] }[] = JSON.parse(
       core.getInput("parameters", {required: true})
