@@ -24,6 +24,6 @@ export const getRepo = (): { owner: string; repo: string } => {
 };
 
 export const getComment = (): string => {
-  const comment = github.context.payload.comment;
+  const comment = github.context.payload.comment.body;
   return comment
 }
