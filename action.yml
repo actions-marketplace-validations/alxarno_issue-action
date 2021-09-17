@@ -1,5 +1,5 @@
-name: "Issue Auto Labeling and Assigning"
-description: "trigger an action based on issue content"
+name: "Issue Auto Labeling and Assigning by Alex"
+description: "trigger an action based on issue comment"
 inputs:
   github-token:
     description: "Github token"
