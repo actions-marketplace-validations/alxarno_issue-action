@@ -10,7 +10,13 @@ async function run() {
     core.setOutput("assigned", false.toString());
     const titleOrBody: string = core.getInput("title-or-body");
     const token = core.getInput("github-token");
-    const content = await getIssueContent(token, titleOrBody);
+    const content = github.context.payload.comment;
+
+    if (!content) {
+      core.setFailed("Action can only be run on comments");
+      return;
+    }
+    
     const parameters: { keywords: string[], labels: string[], assignees: string[] }[] = JSON.parse(
       core.getInput("parameters", {required: true})
     );
