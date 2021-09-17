@@ -8,9 +8,9 @@ async function run() {
   try {
     core.setOutput("labeled", false.toString());
     core.setOutput("assigned", false.toString());
-    const titleOrBody: string = core.getInput("title-or-body");
+    // const titleOrBody: string = core.getInput("title-or-body");
     const token = core.getInput("github-token");
-    const content = github.context.payload.comment;
+    const content = getIssueContent()
 
     if (!content) {
       core.setFailed("Action can only be run on comments");
@@ -39,7 +39,7 @@ async function run() {
       setIssueAssignee(token, matchingKeywords);
       core.setOutput("assigned", true.toString());
     }
-  } catch (error) {
+  } catch (error: any) {
     core.setFailed(error.message);
   }
 }

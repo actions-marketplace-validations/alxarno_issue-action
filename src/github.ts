@@ -22,3 +22,8 @@ export const getRepo = (): { owner: string; repo: string } => {
   const repo = github.context.repo;
   return repo;
 };
+
+export const getComment = (): string => {
+  const comment = github.context.payload.comment;
+  return comment
+}
