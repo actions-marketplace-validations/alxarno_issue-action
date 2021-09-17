@@ -17,8 +17,6 @@ async function run() {
       return;
     }
 
-    console.log("Comment:", content)
-    
     const parameters: { keywords: string[], labels: string[], assignees: string[] }[] = JSON.parse(
       core.getInput("parameters", {required: true})
     );
@@ -35,7 +33,6 @@ async function run() {
       console.log("Keywords not included in this issue");
       return;
     } else {
-      setIssueLabel(token, matchingKeywords);
       core.setOutput("labeled", true.toString());
   
       setIssueAssignee(token, matchingKeywords);
